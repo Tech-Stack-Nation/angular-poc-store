@@ -1,0 +1,18 @@
+@import "../../theme/tailwind";
+
+:host .menu {
+    &-link{
+      @apply rounded-md px-3 py-2 text-sm font-medium text-gray-300;
+  
+      @at-root {
+        &-active {
+          @apply bg-gray-900 text-white duration-100;
+        }
+  
+        &:hover{
+          @apply bg-gray-700 text-white duration-100
+        }
+      }
+    }
+  }
+  

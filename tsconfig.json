@@ -19,11 +19,32 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "paths": {
+      "@config/*": [
+        "./config/*"
+      ],
+      "@projects/*": [
+        "./projects/*"
+      ],
+      "@app-template": [
+        "./dist/app-template"
+      ],
+      "lib-dynamic-grid": [
+        "./dist/lib-dynamic-grid"
+      ],
+      "lib-default-template": [
+        "./dist/lib-default-template"
+      ],
+      "lib-title-strategy": [
+        "./dist/lib-title-strategy"
+      ]
+    },
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
   },
+
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

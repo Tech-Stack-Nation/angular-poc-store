@@ -14,27 +14,19 @@
 <h2 class="font-semibold uppercase mb-2">Applications</h2>
 
 <ul class="text-gray-700">
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">App Store</a>
-  </li>
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">Dynamic Grid POC</a>
-  </li>
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">Title Strategy</a>
-  </li>
+  @for(app of apps; track app) {
+    <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
+      <a routerLinkActive="active" routerLink="/docs/article/{{app.key}}" class="py-1 px-2 block">{{app.link}}</a>
+    </li>
+  }
 </ul>
 
 <h2 class="font-semibold uppercase mb-2">Libraries</h2>
 
 <ul class="text-gray-700">
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">Title Strategy</a>
-  </li>
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">Dynamic Grid</a>
-  </li>
-  <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
-    <a class="py-1 px-2 block">Default Template</a>
-  </li>
+  @for(lib of libs; track lib) {
+    <li class="mb-2 hover:bg-gray-200 hover:rounded-xl duration-100 hover:cursor-pointer">
+      <a routerLinkActive="active" routerLink="/docs/article/{{lib.key}}" class="py-1 px-2 block">{{lib.link}}</a>
+    </li>
+  }
 </ul>

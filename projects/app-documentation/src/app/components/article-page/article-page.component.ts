@@ -37,10 +37,7 @@ export default class ArticlePageComponent{
 
     const config = Object.values(DOCS_MODULES).find((config) => config.key === articleKey);
     
-    // Want to have this callback done after main loop is completed.
-    setTimeout(() => {
-      this.markdownService.reload();
-    }, 0);
+    this.markdownService.reload();
 
     return `docs/${config!.folder}/README.md`;
   });

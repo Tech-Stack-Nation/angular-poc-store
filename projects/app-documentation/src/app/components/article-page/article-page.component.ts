@@ -1,16 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, computed, inject, Input, input, OnChanges, signal, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, ViewEncapsulation } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { DOCS_MODULES } from '@config/apps';
 import { MarkdownComponent, MarkdownService } from 'ngx-markdown'
-
-// import 'prismjs';
-// import 'prismjs/components/prism-typescript.min.js';
-// import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-// import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
-// import 'emoji-toolkit/lib/js/joypixels.min.js';
-// import 'mermaid/dist/mermaid.min.js';
-
 
 @Component({
   selector: 'app-article-page',
@@ -42,13 +34,4 @@ export default class ArticlePageComponent{
     return `docs/${config!.folder}/README.md`;
   });
 
-
-
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if(changes['articleKey'] && changes['articleKey'].currentValue && !changes['articleKey'].firstChange) {
-
-    
-    }
-  }
 }

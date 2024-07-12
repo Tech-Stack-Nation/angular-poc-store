@@ -4,13 +4,14 @@ import { APPS } from "@config/app-list";
 import { DOCUMENT_APP_PROVIDERS } from "./providers";
 import { DOCUMENTATION_APP_CONFIG } from "./app";
 import { lazyLoadScriptsResolver } from "../resolver/lazyload.resolver";
+import { titleResolver } from "../resolver/title.resolver";
 
 export const DOCUMENT_APP_PAGES = {
     ARTICLE: new PAGE(
         {
             path: "article/:articleKey",
             loadComponent: () => import('../components/article-page/article-page.component'),
-            title: "Article",
+            title: titleResolver,
             resolve: {
                 scripts: lazyLoadScriptsResolver
             },

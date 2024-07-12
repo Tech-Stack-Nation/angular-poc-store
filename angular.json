@@ -219,6 +219,41 @@
               {
                 "glob": "**/*",
                 "input": "projects/app-poc-store/public"
+              },
+              {
+                "glob": "**/*.md",
+                "input": "./projects",
+                "output": "/docs/"
+              },
+              {
+                "glob": "**/prism.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
+              },
+              {
+                "glob": "**/prism-typescript.min.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
+              },
+              {
+                "glob": "**/prism-line-numbers.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
+              },
+              {
+                "glob": "**/prism-line-highlight.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
+              },
+              {
+                "glob": "**/joypixels.min.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
+              },
+              {
+                "glob": "**/mermaid.min.js",
+                "input": "./node_modules",
+                "output": "/scripts/"
               }
             ],
             "styles": [
@@ -238,7 +273,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumError": "30kB"
                 }
               ],
               "outputHashing": "all"

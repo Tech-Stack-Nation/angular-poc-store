@@ -1,14 +1,18 @@
-<section class="min-h-full">
-  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap">
-    <aside class="min-w-80">
-      side1
+<section class="min-h-full pt-3">
+  <section class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex flex-wrap">
+    <aside>
+      <section class="mb-5 flex gap-4 items-center">
+        <img class="h-8 w-8" src="https://media.licdn.com/dms/image/D4E0BAQGNnsxSwrNZqg/company-logo_200_200/0/1712831441430?e=1729123200&v=beta&t=DgmuhLb-LDru_Rq_LpCXqHau8owKij5im-RpKXdJryk" alt="Your Company">
+        <h1 class="text-2xl font-bold">Docs</h1>
+      </section>
+      <lib-documentation-layout-left-menu></lib-documentation-layout-left-menu>
     </aside>
-    <main class="w-full">
+    <main>
       <section>
         <router-outlet></router-outlet>
       </section>
     </main>
-    <aside class="min-w-80">
+    <aside>
       side1
     </aside>
   </section>

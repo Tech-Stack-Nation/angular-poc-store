@@ -3,6 +3,7 @@ import { PAGE } from "lib-default-template";
 import { APPS } from "@config/app-list";
 import { DOCUMENT_APP_PROVIDERS } from "./providers";
 import { DOCUMENTATION_APP_CONFIG } from "./app";
+import { lazyLoadScriptsResolver } from "../resolver/lazyload.resolver";
 
 export const DOCUMENT_APP_PAGES = {
     ARTICLE: new PAGE(
@@ -10,6 +11,9 @@ export const DOCUMENT_APP_PAGES = {
             path: "article/:articleKey",
             loadComponent: () => import('../components/article-page/article-page.component'),
             title: "Article",
+            resolve: {
+                scripts: lazyLoadScriptsResolver
+            },
             providers: []
         },
         '',

@@ -1,6 +1,5 @@
 import { Routes } from "@angular/router";
-import { APPS } from "@config/app-list";
-import { PAGE } from "lib-default-template";
+import { APP_CONFIG_TEMPLATE_SETTINGS_TOKEN, PAGE } from "lib-default-template";
 import { DynamicDataSource, GRID_CONFIG_TOKEN, GRID_DATA_SOURCE_TOKEN } from "lib-dynamic-grid";
 import { Team } from "../models/entity/team";
 import { inject, signal } from "@angular/core";
@@ -9,6 +8,9 @@ import { of } from "rxjs";
 import { TeamGrid } from "../components/team-list-page/team.grid";
 import { ProjectGrid } from "../components/project-list-page/project.grid";
 import { Project } from "../models/entity/project";
+import { DYNAMIG_GRID_APP_CONFIG } from "./app";
+import { APPS } from "@config/app-list";
+import { DYNAMIC_GRID_APP_PROVIDERS } from "./providers";
 
 export const DYNAMIC_GRID_APP_PAGES = {
     DASHBOARD: new PAGE(
@@ -57,6 +59,15 @@ export const DYNAMIC_GRID_APP_PAGES = {
     ),
 }
 
-export const DYNAMIC_GRID_APP_PAGE_ROUTES: Routes = [...Object.values(DYNAMIC_GRID_APP_PAGES).map(page => page.route),
-{ path: '', redirectTo: DYNAMIC_GRID_APP_PAGES.DASHBOARD.partialLink, pathMatch: 'full' }
+export const DYNAMIC_GRID_APP_PAGE_ROUTES: Routes = [
+    {
+        path: '',
+        loadComponent: DYNAMIG_GRID_APP_CONFIG.layoutComponent,
+        children: [
+            ...Object.values(DYNAMIC_GRID_APP_PAGES).map(page => page.route),
+            { path: '', redirectTo: DYNAMIC_GRID_APP_PAGES.DASHBOARD.partialLink, pathMatch: 'full' }
+        ],
+        providers: [...DYNAMIC_GRID_APP_PROVIDERS]
+    },
 ];
+

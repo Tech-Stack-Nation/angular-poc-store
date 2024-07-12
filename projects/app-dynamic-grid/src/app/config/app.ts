@@ -1,3 +1,4 @@
+
 import { APPS } from '@config/app-list';
 import { DYNAMIC_GRID_APP_PROVIDERS } from './providers';
 
@@ -9,5 +10,4 @@ export const DYNAMIG_GRID_APP_CONFIG = {
     layoutComponent: () => import('lib-default-template').then(c => c.LayoutComponent),
     route: APPS.DYNAMIC_GRID,
     routes: () => import('@projects/app-dynamic-grid/src/app/config/pages').then((r) => r.DYNAMIC_GRID_APP_PAGE_ROUTES),
-    providers: DYNAMIC_GRID_APP_PROVIDERS,
 }

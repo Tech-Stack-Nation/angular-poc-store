@@ -1,6 +1,6 @@
-import { APPS } from "@config/app-list";
+
 import { APP_CONFIG } from "@config/apps";
-import { TITLE_STRATEGY_APP_PROVIDERS } from "./providers";
+import { APPS } from "@config/app-list";
 
 export const TITLE_STRATEGY_APP_CONFIG: APP_CONFIG = {
     key: APPS.TITLE_STRATEGY,
@@ -10,6 +10,5 @@ export const TITLE_STRATEGY_APP_CONFIG: APP_CONFIG = {
     layoutComponent: () => import('lib-default-template').then(c => c.LayoutComponent),
     route: APPS.TITLE_STRATEGY,
     routes: () => import('@projects/app-title-strategy-poc/src/app/config/pages').then((r) => r.TITLE_STRATEGY_APP_PAGE_ROUTES),
-    providers: TITLE_STRATEGY_APP_PROVIDERS,
 }
 

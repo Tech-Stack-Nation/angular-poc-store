@@ -12,7 +12,6 @@ export interface APP_CONFIG {
     layoutComponent: any;
     route: APPS | string;
     routes: any;
-    providers: Provider[];
 }
 
 export const APP_MODULES: Record<APPS, APP_CONFIG> = {

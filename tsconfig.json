@@ -26,9 +26,6 @@
       "@projects/*": [
         "./projects/*"
       ],
-      "@app-template": [
-        "./dist/app-template"
-      ],
       "lib-dynamic-grid": [
         "./dist/lib-dynamic-grid"
       ],

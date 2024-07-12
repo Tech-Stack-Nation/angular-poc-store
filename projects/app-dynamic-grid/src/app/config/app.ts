@@ -1,6 +1,5 @@
 
 import { APPS } from '@config/app-list';
-import { DYNAMIC_GRID_APP_PROVIDERS } from './providers';
 
 export const DYNAMIG_GRID_APP_CONFIG = {
     key: APPS.DYNAMIC_GRID,

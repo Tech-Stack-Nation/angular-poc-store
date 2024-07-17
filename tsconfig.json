@@ -32,6 +32,9 @@
       "lib-default-template": [
         "./dist/lib-default-template"
       ],
+      "lib-lazyload-util": [
+        "./dist/lib-lazyload-util"
+      ],
       "lib-title-strategy": [
         "./dist/lib-title-strategy"
       ]

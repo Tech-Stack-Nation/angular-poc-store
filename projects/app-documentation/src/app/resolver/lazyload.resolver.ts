@@ -1,23 +1,29 @@
 import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from "@angular/router";
-import { Observable, of } from "rxjs";
-import { LazyScriptLoaderService } from "../services/lazy-script-loader.service";
-import { inject } from "@angular/core";
+import { debounceTime, filter, Observable, of, tap } from "rxjs";
+import { effect, inject } from "@angular/core";
+import { getScriptsInFlatList, LazyScriptLoaderService, Script, ScriptLoadingState } from "lib-lazyload-util";
+import { toObservable } from '@angular/core/rxjs-interop';
+import { DOCUMENTATION_APP_CONFIG } from "../config/app";
+import { AppPreloadScript } from "@projects/lib-lazyload-util/src/public-api";
 
-export const lazyLoadScriptsResolver: ResolveFn<boolean> = async (
+export const lazyLoadScriptsResolver: ResolveFn<Script[]> = (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
-): Promise<boolean> => {
-    const lazyService = inject(LazyScriptLoaderService)
-    await lazyService.load(
-        "scripts/prismjs/prism.js",
-        "scripts/emoji-toolkit/lib/js/joypixels.min.js",
-        "scripts/mermaid/dist/mermaid.min.js",
+): Observable<Script[]> => {
+    const lazyService = inject(LazyScriptLoaderService);
+    const scriptsToLoad: AppPreloadScript[] = getScriptsInFlatList(DOCUMENTATION_APP_CONFIG.scriptsToPreload);
+
+    lazyService.load(
+        scriptsToLoad
     );
 
-    await lazyService.load(
-        "scripts/prismjs/components/prism-typescript.min.js", 
-        "scripts/prismjs/plugins/line-numbers/prism-line-numbers.js",
-        "scripts/prismjs/plugins/line-highlight/prism-line-highlight.js",
-    );
-    return Promise.resolve(true);
+    return toObservable(lazyService.scripts).pipe(
+        filter((scripts) =>
+            scripts.filter((script) => 
+                scriptsToLoad.map(
+                    (script) => script.src).includes(script.src) && script.state === ScriptLoadingState.FINISHED)
+            .length === scriptsToLoad.length
+        ),
+    )
+
 }

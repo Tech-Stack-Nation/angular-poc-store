@@ -507,6 +507,39 @@
           }
         }
       }
+    },
+    "lib-lazyload-util": {
+      "projectType": "library",
+      "root": "projects/lib-lazyload-util",
+      "sourceRoot": "projects/lib-lazyload-util/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lib-lazyload-util/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-lazyload-util/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-lazyload-util/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/lib-lazyload-util/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -1,4 +1,3 @@
-import { Provider } from '@angular/core';
 import { APPS } from './app-list';
 import { DYNAMIG_GRID_APP_CONFIG } from '@projects/app-dynamic-grid/src/app/config/app';
 import { TITLE_STRATEGY_APP_CONFIG } from '@projects/app-title-strategy-poc/src/app/config/app';
@@ -7,15 +6,19 @@ import { DOCUMENTATION_APP_CONFIG } from '@projects/app-documentation/src/app/co
 import { LoadChildrenCallback } from '@angular/router';
 import { LIBS } from './lib-list';
 import { DOCS_PAGE_CONFIG } from 'lib-default-template';
+import { AUTHOR_CONFIG } from './author-list';
+import { AppPreloadScript } from 'lib-lazyload-util';
 
 export interface APP_CONFIG {
     key: APPS,
     image: string;
     title: string;
+    author: AUTHOR_CONFIG;
     description: string;
     layoutComponent: any;
     route: APPS | string;
     routes: LoadChildrenCallback | undefined;
+    scriptsToPreload: AppPreloadScript[]
 }
 
 export type WORKSPACE = APPS | LIBS;
@@ -25,14 +28,14 @@ export const DOCS_MODULES: Record<WORKSPACE, DOCS_PAGE_CONFIG> = {
         key: 'default',
         type: 'APP',
         folder: 'app-documentation',
-        link: 'Home',
+        link: 'Docs',
         showInMenu: true,
     },
     [APPS.STORE]: {
         key: 'app-store',
         type: 'APP',
         folder: 'app-poc-store',
-        link: 'Store',
+        link: 'Home',
         showInMenu: true,
     },
     [APPS.TITLE_STRATEGY]: {
